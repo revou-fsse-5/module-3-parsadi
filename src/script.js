@@ -11,8 +11,10 @@ var recipeInstruction = document.querySelector(".recipe-instructions");
 
 var button = document.getElementById("getRecipeBtn");
 var recipeContainer = document.getElementById('recipeContainer');
+var finderContainer = document.querySelector(".container");
 
-button.onclick = handleClick;
+
+button.onclick = fetchData; //ganti ke fetchdata
 
 function handleClick() {
     document.querySelector(".container").style.width = "50%";
@@ -41,4 +43,77 @@ function handleClick() {
     console.log(formattedInstructions);
 
 
+}
+
+// the fetch method is an promise. Thus we use then() when its resolve
+// console.log(
+//     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+//         .then((response) => {
+//             console.log(response)
+//             if (response.ok) {
+//                 return response.json()
+//             } else {
+//                 throw new Error("Could not fetch the data")
+//             }
+//         })
+//         .then((data) => {
+//             console.log(data)
+//             console.log(data.meals[0].idMeal);
+//         })
+//         .catch(error => console.log('error'))
+// );
+
+
+async function fetchData() {
+    try {
+        const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+
+        if (!response.ok) {
+            throw new Error("Could not fetch the data")
+        }
+
+        console.log(response)
+        const data = await response.json()
+        console.log(data)
+        console.log(data.meals)
+        console.log(data.meals[0])
+        console.log(data.meals[0].strMealThumb)//image
+        console.log(data.meals[0].strMeal)//title
+        console.log(data.meals[0].strInstructions)//instruction
+
+
+        //Fetching process has been finished, now we move on to the button functionality
+
+        //title 
+        const titleFromfetch = data.meals[0].strMeal;
+        recipeTitle.innerHTML = titleFromfetch;
+
+        //image
+        const isImageFromFetch = data.meals[0].strMealThumb;
+        recipeImage.src = isImageFromFetch;
+        //style
+        recipeImage.style.width = "200px";
+        recipeImage.style.left = "80%";
+
+        //instructions
+        const isInstructionFromFetch = data.meals[0].strInstructions;
+        recipeInstruction.innerHTML = isInstructionFromFetch;
+        //style
+        recipeInstruction.style.textAlign = "center";
+
+        // Container Style
+        finderContainer.style.width = "50%";
+
+        //Receipe container style
+        recipeContainer.style.display = "flex";
+        recipeContainer.style.flexDirection = "column";
+        recipeContainer.style.alignItems = "center";
+
+        //Button
+        button.style.display = "none";
+
+    }
+    catch (error) {
+        console.error("error", error);
+    }
 }
