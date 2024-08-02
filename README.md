@@ -112,3 +112,8 @@ async function fetchData() {
 }
 ```
 
+note : dont forget to link the button to the async function that we made
+```Javascript
+button.onclick = fetchData; //ganti ke fetchdata
+```
+
