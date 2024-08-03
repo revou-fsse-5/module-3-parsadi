@@ -117,3 +117,56 @@ async function fetchData() {
         console.error("error", error);
     }
 }
+
+
+// document.querySelector(".container").style.width = "50%";
+        // recipeContainer.style.display = "flex";
+        // recipeContainer.style.flexDirection = "column";
+        // recipeContainer.style.alignItems = "center";
+        // button.style.display = "none";
+        // recipeImage.src = "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg";
+        // recipeImage.style.width = "200px";
+        // recipeTitle.innerHTML = recipe.title;
+        // console.log(recipeTitle);
+        // console.log(recipeInstruction);
+        // recipeInstruction.style.textAlign = "center";
+
+        
+//     .then(response => response.json())
+//     .then(data => console.log(data.meals))
+
+
+
+//promise. i promise to make a best video, if resolve, then(), you get the video, if not then ive rejected.
+
+//anything that goes after then() will be resolve. It is like when you make a promise then you do it
+
+// then is for the promise that resolved, while catch() is for promise that rejected
+
+// let p = new Promise((resolve, reject) => {
+//     const a = 1 + 2;
+//     if (a === 2) {
+//         resolve("thats true")
+//     } else {
+//         reject("thats wrong")
+//     }
+// })
+
+// p.then((massage) => {
+//     console.log(massage);
+// }).catch((massage) => {
+//     console.log(massage);
+// })
+
+// const plane = true;
+// const fly = true;
+
+// function isPlanefly (ifItsFly, ifItsNot){
+//     if(plane){
+//         ifItsFly({
+//             "
+//         })
+//     }
+// }
+
+//async and await is just sugarcoater to promises so its better to work with
