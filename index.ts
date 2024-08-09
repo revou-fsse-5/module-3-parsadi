@@ -15,8 +15,17 @@
 
 // Assignment-----------------------------------------------------------
 
+interface Meal {
+    strMeal: string;
+    strMealThumb: string;
+    strInstructions: string;
+}
 
-var recipeTitle = document.querySelector(".recipe-title") as HTMLElement
+interface ApiResponse {
+    meals: Meal[];
+}
+
+let recipeTitle = document.querySelector(".recipe-title") as HTMLHeadElement
 var recipeImage = document.querySelector('.recipe-image') as HTMLImageElement
 var recipeInstruction = document.querySelector(".recipe-instructions") as HTMLElement
 
@@ -37,11 +46,12 @@ async function fetchData(): Promise<void> {
 
         console.log(response)
         const data = await response.json()
-        console.log(data)
+        const parseData: ApiResponse = data
+        console.log({ parseData })
         console.log(data.meals)
         console.log(data.meals[0])
         console.log(data.meals[0].strMealThumb)//image
-        console.log(data.meals[0].strMeal)//title
+        console.log(parseData.meals[0].strMeal)//title
         console.log(data.meals[0].strInstructions)//instruction
 
 
@@ -49,6 +59,7 @@ async function fetchData(): Promise<void> {
 
         //title 
         const titleFromfetch = data.meals[0].strMeal;
+        //
         recipeTitle.innerHTML = titleFromfetch;
 
         //image

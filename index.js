@@ -35,14 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-// var isNum: number = 5;
-// var company: string = "Harum Company";
-//Tuple
-// var isPerson: [string, number, boolean] = ["Ben", 22, true];
-//Tuple array
-// var employee: [string, number][] = [["John", 1], ["John", 1], ["John", 1]];
-//Union (can hold more then one particular types)
-// Assignment-----------------------------------------------------------
 var recipeTitle = document.querySelector(".recipe-title");
 var recipeImage = document.querySelector('.recipe-image');
 var recipeInstruction = document.querySelector(".recipe-instructions");
@@ -52,7 +44,7 @@ var finderContainer = document.querySelector(".container");
 button.onclick = fetchData; //ganti ke fetchdata
 function fetchData() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, data, titleFromfetch, isImageFromFetch, isInstructionFromFetch, error_1;
+        var response, data, parseData, titleFromfetch, isImageFromFetch, isInstructionFromFetch, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -67,13 +59,15 @@ function fetchData() {
                     return [4 /*yield*/, response.json()];
                 case 2:
                     data = _a.sent();
-                    console.log(data);
+                    parseData = data;
+                    console.log({ parseData: parseData });
                     console.log(data.meals);
                     console.log(data.meals[0]);
                     console.log(data.meals[0].strMealThumb); //image
-                    console.log(data.meals[0].strMeal); //title
+                    console.log(parseData.meals[0].strMeal); //title
                     console.log(data.meals[0].strInstructions); //instruction
                     titleFromfetch = data.meals[0].strMeal;
+                    //
                     recipeTitle.innerHTML = titleFromfetch;
                     isImageFromFetch = data.meals[0].strMealThumb;
                     recipeImage.src = isImageFromFetch;
