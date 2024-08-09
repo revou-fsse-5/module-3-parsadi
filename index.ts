@@ -17,10 +17,10 @@
 
 
 var recipeTitle = document.querySelector(".recipe-title") as HTMLElement
-var recipeImage = document.querySelector('.recipe-image') as HTMLElement
+var recipeImage = document.querySelector('.recipe-image') as HTMLImageElement
 var recipeInstruction = document.querySelector(".recipe-instructions") as HTMLElement
 
-var button = document.getElementById("getRecipeBtn") as HTMLElement
+var button = document.getElementById("getRecipeBtn") as HTMLButtonElement
 var recipeContainer = document.getElementById('recipeContainer') as HTMLElement
 var finderContainer = document.querySelector(".container") as HTMLElement
 
